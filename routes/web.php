@@ -24,6 +24,9 @@ Route::get('/',[UsuarioController::class, 'logout'])->name('usuarios.logout');
 
 Route::get('/instrutores',[CadInstrutoresController::class,'index'])->name('instrutores.index');
 Route::post('/instrutores/insert', [CadInstrutoresController::class, 'insert'])->name('instrutores.insert');
+Route::get('/instrutores/inserir', [CadInstrutoresController::class,'create'])->name('instrutores.inserir');
+Route::get('/instrutores/{item}/editar',[CadInstrutoresController::class,'editar'])->name('instrutores.editar');
+Route::put('/instrutores/{item}',[CadInstrutoresController::class,'edit'])->name('instrutores.edit');
 
 Route::get('home-admin',[AdminController::class,'index'])->name('admin.index');
 Route::put('/admin/{usuario}',[AdminController::class,'editar'])->name('admin.editar');

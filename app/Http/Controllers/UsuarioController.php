@@ -11,7 +11,7 @@ class UsuarioController extends Controller
         $usuario = $request->usuario;
         $senha = $request->senha;
 
-        $usuarios = usuario::where('usuario','=',$usuario)->where('senha','=',$senha)->first();
+        $usuarios = usuario::where('usuario','=',$usuario)->orwhere('cpf','=',$usuario)->where('senha','=',$senha)->first();
 
         //@ ignora caso seja indefinido
         if(@$usuarios->id != null){

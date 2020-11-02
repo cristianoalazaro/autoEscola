@@ -1,6 +1,7 @@
 <?php
     use App\Models\usuario;
 
+    @session_start();
     $id_usuario = @$_SESSION['id_usuario'];
     $usuario = usuario::find($id_usuario);
 ?>

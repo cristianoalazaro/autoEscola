@@ -13,7 +13,7 @@ if(!isset($id)){
 
 ?>
 
-<a href="{{route('instrutores.insert')}} " type="button" class="mt-4 mb-4 btn btn-primary">Inserir Instrutor</a>
+<a href="{{route('instrutores.inserir')}} " type="button" class="mt-4 mb-4 btn btn-primary">Inserir Instrutor</a>
 
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
@@ -34,14 +34,17 @@ if(!isset($id)){
 
       <tbody>
       @foreach($itens as $item)
+      <?php
+        $data = implode('/',array_reverse(explode('-',$item->data)));
+      ?>
          <tr>
             <td>{{$item->nome}}</td>
             <td>{{$item->email}}</td>
             <td>{{$item->cpf}}</td>
             <td>{{$item->telefone}}</td>
-            <td>{{$item->data}}</td>
+            <td>{{$data}}</td>
             <td>
-            <a href=""><i class="fas fa-edit text-info mr-1"></i></a>
+            <a href="{{route('instrutores.editar',$item)}} "><i class="fas fa-edit text-info mr-1"></i></a>
             <a href=""><i class="fas fa-trash text-danger mr-1"></i></a>
             </td>
         </tr>
