@@ -1,5 +1,5 @@
 @extends('template.painel-admin')
-@section('title', 'Instrutores')
+@section('title', 'Usuários')
 @section('content')
 <?php 
 @session_start();
@@ -13,7 +13,6 @@ if(!isset($id)){
 
 ?>
 
-<a href="{{route('instrutores.inserir')}} " type="button" class="mt-4 mb-4 btn btn-primary">Inserir Instrutor</a>
 
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
@@ -24,28 +23,22 @@ if(!isset($id)){
       <thead>
         <tr>
           <th>Nome</th>
-          <th>E-mail</th>
-          <th>CPF</th>
-          <th>Telefone</th>
-          <th>Vencimento</th>
-          <th>Ações</th>
+          <th>Usuário</th>
+          <th>Senha</th>
+          <th>Nível</th>
         </tr>
       </thead>
 
       <tbody>
       @foreach($itens as $item)
-      <?php
-        $item->data = implode('/',array_reverse(explode('-',$item->data)));
-      ?>
+   
          <tr>
             <td>{{$item->nome}}</td>
-            <td>{{$item->email}}</td>
-            <td>{{$item->cpf}}</td>
-            <td>{{$item->telefone}}</td>
-            <td>{{$item->data}}</td>
+            <td>{{$item->usuario}}</td>
+            <td>{{$item->senha}}</td>
+            <td>{{$item->nivel}}</td>
             <td>
-            <a href="{{route('instrutores.editar',$item)}} "><i class="fas fa-edit text-info mr-1"></i></a>
-            <a href="{{route('instrutores.modal',$item)}} "><i class="fas fa-trash text-danger mr-1"></i></a>
+            <a href="{{route('usuarios.modal',$item)}} "><i class="fas fa-trash text-danger mr-1"></i></a>
             </td>
         </tr>
         @endforeach 
@@ -86,7 +79,7 @@ if(!isset($id)){
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-        <form method="POST" action="{{route('instrutores.delete', $id)}} ">
+        <form method="POST" action="{{route('usuarios.delete', $id)}} ">
           @csrf
           @method('delete')
           <button type="submit" class="btn btn-danger">Excluir</button>
