@@ -75,7 +75,7 @@ class RecepController extends Controller
         $item->endereco = $req->endereco;
         $item->telefone = $req->telefone;
         $item->save();
-        return view('painel-admin.recep.edit',['item'=>$item]);
+        return redirect()->route('recep.index');
     }
 
     public function delete(recepcionista $item){

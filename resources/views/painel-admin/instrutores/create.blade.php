@@ -51,7 +51,8 @@
         <div class="col-md-6">
             <div class="form-group">
                 <label for="exampleInputEmail">Vencimento Credencial</label>
-                <input type="date" class="form-control" id="data" name="data" required>
+                <input type="date" class="form-control" id="data" name="data" 
+                value="<?php echo date('Y-m-d') ?>" required>
             </div>
         </div>
     </div>

@@ -2,10 +2,12 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CadInstrutoresController;
+use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RecepController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\VeiculoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +49,23 @@ Route::put('/recep/{item}',[RecepController::class,'edit'])->name('recep.edit');
 Route::delete('/recep/{item}',[RecepController::class,'delete'])->name('recep.delete');
 Route::get('/recep/{item}/delete',[RecepController::class,'modal'])->name('recep.modal');
 
+//Categorias
+Route::get('/categorias',[CategoriaController::class,'index'])->name('categorias.index');
+Route::post('/categorias', [CategoriaController::class, 'insert'])->name('categorias.insert');
+Route::get('/categorias/inserir', [CategoriaController::class,'create'])->name('categorias.inserir');
+Route::get('/categorias/{item}/editar',[CategoriaController::class,'editar'])->name('categorias.editar');
+Route::put('/categorias/{item}',[CategoriaController::class,'edit'])->name('categorias.edit');
+Route::delete('/categorias/{item}',[CategoriaController::class,'delete'])->name('categorias.delete');
+Route::get('/categorias/{item}/delete',[CategoriaController::class,'modal'])->name('categorias.modal');
+
+//Veículos
+Route::get('/veiculos',[VeiculoController::class,'index'])->name('veiculos.index');
+Route::post('/veiculos', [VeiculoController::class, 'insert'])->name('veiculos.insert');
+Route::get('/veiculos/inserir', [VeiculoController::class,'create'])->name('veiculos.inserir');
+Route::get('/veiculos/{item}/editar',[VeiculoController::class,'editar'])->name('veiculos.editar');
+Route::put('/veiculos/{item}',[VeiculoController::class,'edit'])->name('veiculos.edit');
+Route::delete('/veiculos/{item}',[VeiculoController::class,'delete'])->name('veiculos.delete');
+Route::get('/veiculos/{item}/delete',[VeiculoController::class,'modal'])->name('veiculos.modal');
 
 Route::get('home-admin',[AdminController::class,'index'])->name('admin.index');
 Route::put('/admin/{usuario}',[AdminController::class,'editar'])->name('admin.editar');

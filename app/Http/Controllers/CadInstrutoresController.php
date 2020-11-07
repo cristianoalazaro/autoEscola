@@ -88,7 +88,7 @@ class CadInstrutoresController extends Controller
         $item->telefone = $req->telefone;
         $item->data = $req->data;
         $item->save();
-        return view('painel-admin.instrutores.edit',['item'=>$item]);
+        return redirect()->route('instrutores.index');
     }
 
     public function delete(instrutore $item){
